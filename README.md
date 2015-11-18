@@ -7,8 +7,6 @@ The Fingerbank client is a Javascript client that can accuratly determine what k
 
 ## Installation
 
-First of all, register on https://fingerbank.inverse.ca/users/register and grab your key from your profile page. In this documentation the key will be '1234567890'
-
 You can install the client with bower
 
 `# bower install fingerbank-client`
@@ -21,9 +19,9 @@ You can also add the following tag to your webpage :
 
 ## Usage
 
-First, you need to initialize the client with the API key you got from your Fingerbank account.
+First, you need to initialize the client.
 
-`var client = new FingerbankClient("1234567890");`
+`var client = new FingerbankClient();`
 
 And you can then interogate the API with a user agent
 
@@ -48,3 +46,8 @@ endpoint.isBlackberry()
 endpoint.hasParent("Generic Android") // Check if the device has for parent 'Generic Android'
 endpoint.is("Samsung Android") // Check if the device is or has for parent Samsung Android
 ```
+
+## Example
+
+An example is provided in this repository in `index.html`.
+

@@ -54,9 +54,9 @@ Endpoint.prototype.isBlackberry = function(){
 }
 
 
-function FingerbankClient(key){
+function FingerbankClient(){
   var self = this;
-  self.key = key;
+  self.key = "javascript-lib";
 }
 // Tests run through node so we need to export it
 if(typeof(requireGlobal) == "function") exports.FingerbankClient = FingerbankClient;
@@ -71,6 +71,9 @@ FingerbankClient.prototype.endpointFromUserAgent = function(userAgent, callback)
   $.ajax({
     type:"get",
     url:"http://127.0.0.1:3000/api/v1/combinations/interogate",
+    beforeSend: function(request){
+      request.setRequestHeader("X-Fingerbank-Lib", "Inverse-Javascript-Lib");
+    },
     data:{
       user_agent: userAgent,
       key: self.key,
@@ -80,10 +83,12 @@ FingerbankClient.prototype.endpointFromUserAgent = function(userAgent, callback)
     },
     error: function(response){
       if(response.status == 404){
-        callback()
+        callback();
       }
       else {
-        throw "Failed with error : "+response.status;
+        console.error("Fingerbank API call failed with error : "+response.status+", Response text : "+response.responseText);
+        var error = {status : response.status, message : response.responseText};
+        callback(null,error);
       }
     }
   });

@@ -1,6 +1,50 @@
 <html>
   <head>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="dist/fingerbank-client.js"></script>
   </head>
+  <body>
+    <h1>Fingerbank Javascript client example</h1>
+    <button id="fingerbank-example-current-device">Click here to find which device you are using</button>
+    
+
+    <h3>Interogate with a custom user agent below</h3>
+    <form name="fingerbank-example" id="fingerbank-example-form" method="POST">
+      <div>
+        <label>User agent : </label>
+        <input type="text" name="user_agent" id="fingerbank-example-user_agent-input" />
+      </div>
+      <input type="submit">
+    </form>
+
+    <script>
+
+      var client = new FingerbankClient();
+      $('#fingerbank-example-form').submit(function(event){
+        event.preventDefault();
+        client.endpointFromUserAgent($('#fingerbank-example-form #fingerbank-example-user_agent-input').val(),handleResult);
+        return false;
+      });
+
+      $('#fingerbank-example-current-device').click(function(event){
+        event.preventDefault();
+        client.endpointFromCurrentUserAgent(handleResult);
+      });
+
+      function handleResult(endpoint,error) {
+        if(error){
+          alert("Error communicating with the API : "+error.message);
+        }
+        else if(endpoint){
+          alert("Device is : '"+endpoint.name+"' version : "+(endpoint.version ? "'"+endpoint.version+"'" : 'Unknown'));
+          console.log(endpoint);
+        }
+        else {
+          alert("Unknown device...");
+        }
+      }
+
+    </script>
+
+  </body>
 </html>
