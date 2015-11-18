@@ -10,6 +10,8 @@ function Endpoint(result){
     self.parents.push(result['device']['parents'][i]['name']);
   }
 }
+// Tests run through node so we need to export it
+if(typeof(requireGlobal) == "function") exports.Endpoint = Endpoint;
 
 Endpoint.prototype.hasParent = function(name){
   var self = this;
@@ -51,13 +53,13 @@ Endpoint.prototype.isBlackberry = function(){
   return self.is("RIM BlackBerry");
 }
 
-// Tests run through node so we need to export it
-if("requireGlobal" in window) exports.Endpoint = Endpoint;
 
 function FingerbankClient(key){
   var self = this;
   self.key = key;
 }
+// Tests run through node so we need to export it
+if(typeof(requireGlobal) == "function") exports.FingerbankClient = FingerbankClient;
 
 FingerbankClient.prototype.resultFromCurrentUserAgent = function(callback){
   var self = this;
@@ -77,5 +79,3 @@ FingerbankClient.prototype.resultFromUserAgent = function(userAgent, callback){
   );
 }
 
-// Tests run through node so we need to export it
-if("requireGlobal" in window) exports.FingerbankClient = FingerbankClient;
