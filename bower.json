@@ -6,7 +6,7 @@
     "Inverse Inc. <info@inverse.ca>"
   ],
   "description": "Fingerbank JavaScript client",
-  "main": "fingerbank-client.js",
+  "main": "dist/fingerbank-client.js",
   "moduleType": [],
   "keywords": [
     "fingerbank"
@@ -18,5 +18,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "jquery": ">1"
+  }
 }

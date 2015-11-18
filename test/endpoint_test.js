@@ -1,3 +1,6 @@
+
+requireGlobal("../lib/endpoint.js");
+
 function EndpointTest(){
   var self = this;
   self.setup();
@@ -62,3 +65,5 @@ EndpointTest.prototype.runTests = function() {
 
   self.assert(self.blackberryEndpoint.isBlackberry(), "Endpoint.isBlackberry detects Blackberry devices");
 }
+
+exports.EndpointTest = EndpointTest;
