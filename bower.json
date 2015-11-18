@@ -1,0 +1,22 @@
+{
+  "name": "fingerbank-client",
+  "version": "0.0.0",
+  "homepage": "http://fingerbank.org",
+  "authors": [
+    "Inverse Inc. <info@inverse.ca>"
+  ],
+  "description": "Fingerbank JavaScript client",
+  "main": "fingerbank-client.js",
+  "moduleType": [],
+  "keywords": [
+    "fingerbank"
+  ],
+  "license": "GPL",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
