@@ -1,5 +1,4 @@
-# Fingerbank Javascript client (fingerbank-client)
-
+# Fingerbank Javascript client
 
 ## About
 
