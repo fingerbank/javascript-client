@@ -27,11 +27,11 @@ First, you need to initialize the client with the API key you got from your Fing
 
 And you can then interogate the API with a user agent
 
-`client.endpointFromUserAgent("Some user agent string")`
+`var endpoint = client.endpointFromUserAgent("Some user agent string")`
 
 You can also get the Endpoint object from the currently connected browser
 
-`client.endpointFromCurrentUserAgent()`
+`var endpoint = client.endpointFromCurrentUserAgent()`
 
 Here are the most interesting attributes/methods for an endpoint
 
