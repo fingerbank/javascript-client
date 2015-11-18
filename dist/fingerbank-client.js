@@ -70,7 +70,7 @@ FingerbankClient.prototype.endpointFromUserAgent = function(userAgent, callback)
   var self = this;
   $.ajax({
     type:"get",
-    url:"http://127.0.0.1:3000/api/v1/combinations/interogate",
+    url:"https://fingerbank.inverse.ca/api/v1/combinations/interogate",
     beforeSend: function(request){
       request.setRequestHeader("X-Fingerbank-Lib", "Inverse-Javascript-Lib");
     },
