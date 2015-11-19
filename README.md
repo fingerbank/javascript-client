@@ -14,7 +14,7 @@ And import `dist/fingerbank-client.js` in your application
 
 You can also add the following tag to your webpage :
 
-`<script src="http://fingerbank.org/libs/javascript/fingerbank-client.js"></script>`
+`<script src="http://inverse.ca/downloads/Fingerbank/fingerbank-client.js"></script>`
 
 ## Usage
 
